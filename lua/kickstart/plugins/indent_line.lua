@@ -3,4 +3,13 @@
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help ibl`
 vim.pack.add { 'https://github.com/lukas-reineke/indent-blankline.nvim' }
-require('ibl').setup {}
+require('ibl').setup {
+  indent = {
+    char = '│', -- Thin solid line
+    -- tab_char = '│', -- set the character for tab indentation
+  },
+  scope = {
+    -- change the active scope line character
+    char = '│',
+  },
+}
