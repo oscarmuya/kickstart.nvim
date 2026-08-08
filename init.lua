@@ -705,6 +705,7 @@ do
     gopls = {},
     pyright = {},
     rust_analyzer = {},
+    jdtls = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
     --    https://github.com/pmizio/typescript-tools.nvim
@@ -793,7 +794,7 @@ do
   -- [[ Formatting ]]
   vim.pack.add { gh 'stevearc/conform.nvim' }
   require('conform').setup {
-    notify_on_error = false,
+    notify_on_error = true,
     format_on_save = function(bufnr)
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
@@ -803,9 +804,11 @@ do
         typescript = true,
         c = true,
         java = true,
+        json = true,
+        astro = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
-        return { timeout_ms = 500 }
+        return { timeout_ms = 3000 }
       else
         return nil
       end
@@ -827,6 +830,7 @@ do
       json = { 'prettier' },
       css = { 'prettier' },
       html = { 'prettier' },
+      astro = { 'prettier' },
     },
   }
 
@@ -929,7 +933,8 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers =
+    { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'typescript', 'javascript', 'tsx', 'css' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
@@ -992,7 +997,7 @@ do
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug'
-  require 'kickstart.plugins.indent_line'
+  -- require 'kickstart.plugins.indent_line'
   -- require 'kickstart.plugins.lint'
   require 'kickstart.plugins.autopairs'
   -- require 'kickstart.plugins.neo-tree'
