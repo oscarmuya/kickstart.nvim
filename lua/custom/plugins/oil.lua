@@ -24,7 +24,7 @@ require('oil').setup {
     padding = 4,
     max_width = 80,
     max_height = 30,
-    border = 'none',
+    border = nil,
   },
 }
 
