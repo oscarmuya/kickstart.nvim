@@ -705,7 +705,16 @@ do
     gopls = {},
     pyright = {},
     rust_analyzer = {},
-    jdtls = {},
+    jdtls = {
+      settings = {
+        java = {
+          format = {
+            insertSpaces = true, -- Force spaces instead of tabs
+            tabSize = 4,
+          },
+        },
+      },
+    },
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
     --    https://github.com/pmizio/typescript-tools.nvim
