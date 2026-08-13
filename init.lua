@@ -708,10 +708,9 @@ do
     jdtls = {
       settings = {
         java = {
-          format = {
-            insertSpaces = true, -- Force spaces instead of tabs
-            tabSize = 4,
-          },
+          format = { enabled = false },
+          insertSpaces = true,
+          tabSize = 2,
         },
       },
     },
@@ -840,6 +839,7 @@ do
       css = { 'prettier' },
       html = { 'prettier' },
       astro = { 'prettier' },
+      java = { 'google-java-format' },
     },
   }
 
