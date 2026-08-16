@@ -814,6 +814,7 @@ do
         java = true,
         json = true,
         astro = true,
+        yaml = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 3000 }
@@ -839,6 +840,7 @@ do
       css = { 'prettier' },
       html = { 'prettier' },
       astro = { 'prettier' },
+      yaml = { 'prettier' },
       java = { 'google-java-format' },
     },
   }

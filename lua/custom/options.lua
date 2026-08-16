@@ -8,4 +8,4 @@ vim.o.softtabstop = 4
 
 -- Required for obsidian.nvim UI features (pretty links, checkboxes, concealing markup)
 -- NOTE: Might cause side-effects when editting JSON - causes double quotes " in .json files to be hidden by default until cursor moves over them
-vim.opt.conceallevel = 2
+-- vim.opt.conceallevel = 2
