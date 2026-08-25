@@ -714,6 +714,7 @@ do
         },
       },
     },
+    tailwindcss = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
     --    https://github.com/pmizio/typescript-tools.nvim
@@ -784,6 +785,7 @@ do
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
     -- You can add other tools here that you want Mason to install
+    'tailwindcss-language-server',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -815,6 +817,8 @@ do
         json = true,
         astro = true,
         yaml = true,
+        typescriptreact = true,
+        javascriptreact = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 3000 }
@@ -835,7 +839,9 @@ do
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
       svelte = { 'prettier' },
       typescript = { 'prettier' },
+      typescriptreact = { 'prettier' }, -- .tsx
       javascript = { 'prettier' },
+      javascriptreact = { 'prettier' }, -- .jsx
       json = { 'prettier' },
       css = { 'prettier' },
       html = { 'prettier' },
